@@ -1,0 +1,17 @@
+.buttonsGroup{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    gap: 8px;
+
+    button{
+        border: none;
+        background: transparent;
+    }
+
+    img{
+        width: 24px;
+        height: auto;
+    }
+}
