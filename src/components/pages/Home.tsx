@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import CardProduct from "../molecules/CardProduct";
+import Paginator from "../molecules/Paginator";
 import PortalDialogSearch from "../molecules/PortalDialogSearch";
 import Header from "../organisms/Header";
 
@@ -97,6 +98,7 @@ const Home = () => {
                             />
                         )
                     }
+                    <Paginator steps={4}/>
                 </div>
             </section>
         </>

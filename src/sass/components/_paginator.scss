@@ -1,0 +1,58 @@
+.paginator{
+    display: flex;
+    column-gap: 16px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8px;
+    .button{
+        &--prev{
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            svg{
+                width: 20px;
+                height: auto;
+                transform: rotate(180deg);
+                polygon{
+                    fill: #bdbdbd;
+                }
+            }
+        }
+        &--next{
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            svg{
+                width: 20px;
+                height: auto;
+                polygon{
+                    fill: #7300e0;
+                }
+            }
+        }
+    }
+    .steps{
+        display: flex;
+        column-gap: 16px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        .step{
+            font-family: "Lato", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #828282;
+            &.current{
+                background-color: #7300e0;
+                color: white;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                text-align: center;
+            }
+        }
+    }
+}
