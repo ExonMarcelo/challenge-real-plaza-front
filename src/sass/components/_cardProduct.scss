@@ -1,0 +1,96 @@
+.card-product{
+    border-radius: 16px;
+    background-color: white;
+
+    img{
+        width: 100%;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+    }
+
+    &__content{
+        padding: 12px;
+        .brand{
+            font-family: "Lato", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            text-transform: uppercase;
+            color: #828282;
+        }
+        h4{
+            margin-top: 8px;
+            font-family: "Lato", sans-serif;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 14px;
+            line-height: 20px;
+            text-transform: uppercase;
+            color: #333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        &__amounts{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+            .price{
+                display: flex;
+                flex-direction: column;
+                &--prev,
+                &--prev span{
+                    font-family: "Lato", sans-serif;
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 12px;
+                    line-height: 16px;
+                    text-transform: uppercase;
+                    color: #828282;
+                    text-decoration: line-through;
+                }
+                &--prev span{
+                    margin-bottom: 4px;
+                    font-size: 10px;
+                    line-height: 14px;
+                    position: absolute;
+                }
+                &--final,
+                &--final span{
+                    font-family: "Lato", sans-serif;
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 20px;
+                    line-height: 24px;
+                    text-transform: uppercase;
+                    color: #333;
+                }
+                &--final span{
+                    margin-bottom: 4px;
+                    font-size: 16px;
+                    line-height: 20px;
+                    position: absolute;
+                }
+            }
+            .discount{
+                .tag{
+                    background: #7300e0;
+                    padding: 4px;
+                    border-radius: 6px;
+                    font-family: "Lato", sans-serif;
+                    font-style: normal;
+                    font-weight: 900;
+                    font-size: 14px;
+                    line-height: 16px;
+                    color: white;
+                }
+            }
+        }
+    }
+
+}

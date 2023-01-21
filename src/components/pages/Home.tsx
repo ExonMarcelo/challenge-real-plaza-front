@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CardProduct from "../molecules/CardProduct";
 import PortalDialogSearch from "../molecules/PortalDialogSearch";
 import Header from "../organisms/Header";
 
@@ -26,6 +27,45 @@ const Home = () => {
             action: ()=>{}
         }
     ]
+
+    const dataProducts = [
+        {
+            id: 1,
+            srcImage: "https://realplaza.vtexassets.com/arquivos/ids/23501034-300-auto",
+            brand: "AMAZFIT",
+            description: "Smartwatch Amazfit GTS 2 Mini Negro Medianoche",
+            price: 659.00,
+            priceFinal: 399.00,
+            discount: 39
+        },
+        {
+            id: 2,
+            srcImage: "https://realplaza.vteximg.com.br/arquivos/ids/24833513/image-4dd0f315f8de4f3f9182a9f798cdf509.jpg",
+            brand: "XIAOMI",
+            description: "Celular Xiaomi Redmi Note 11 4GB RAM 128GB Azul - Versión Global",
+            price: 499.00,
+            priceFinal: 349.00,
+            discount: 30
+        },
+        {
+            id: 3,
+            srcImage: "https://realplaza.vtexassets.com/arquivos/ids/15316242-800-auto",
+            brand: "REEBOK",
+            description: "Zapatillas Urbanas Reebok Hombre  Royal Complete Cln2 Blanco",
+            price: 179.00,
+            priceFinal: 143.00,
+            discount: 20
+        },
+        {
+            id: 4,
+            srcImage: "https://realplaza.vtexassets.com/arquivos/ids/22887909-800-auto",
+            brand: "SAMSUNG",
+            description: 'Televisor Samsung 50" AU7090 UHD 4K Smart TV 2021 UN50AU7090GXPE',
+            price: 2199,
+            priceFinal: 1599,
+            discount: 27
+        },
+    ]
     
     return(
         <>
@@ -39,6 +79,23 @@ const Home = () => {
                     {
                         showDialogSearch &&
                         <PortalDialogSearch/>
+                    }
+                </div>
+            </section>
+            <section>
+                <div className="container container-results">
+                    <h1 className="col-full">Lo más buscado</h1>
+                    {
+                        dataProducts.map(({srcImage, brand, description, price, priceFinal, discount}) =>
+                            <CardProduct 
+                                srcImage={srcImage}
+                                brand={brand}
+                                description={description}
+                                price={price}
+                                priceFinal={priceFinal}
+                                discount={discount}
+                            />
+                        )
                     }
                 </div>
             </section>
