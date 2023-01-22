@@ -39,19 +39,19 @@
         cursor: pointer;
         -webkit-tap-highlight-color: transparent;
         .step{
+            width: 24px;
+            height: 24px;
             font-family: "Lato", sans-serif;
             font-style: normal;
             font-weight: 400;
             font-size: 16px;
             line-height: 20px;
             color: #828282;
+            text-align: center;
             &.current{
                 background-color: #7300e0;
                 color: white;
                 border-radius: 50%;
-                width: 24px;
-                height: 24px;
-                text-align: center;
             }
         }
     }

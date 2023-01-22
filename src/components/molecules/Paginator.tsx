@@ -13,9 +13,21 @@ const Paginator =  ({steps = 4}:PropsPaginator) => {
         }
         return stepsPaginator;
     }
+    const prevStep = () => {
+        if(current === 1){
+            return;
+        }
+        setCurrent(current - 1);
+    }
+    const nextStep = () => {
+        if(current === steps){
+            return;
+        }
+        setCurrent(current + 1);
+    }
     return(
         <div className="col-full paginator">
-            <div className="button--prev">
+            <div className="button--prev" onClick={prevStep}>
                 <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enable-background="new 0 0 48 48">
                     <polygon fill="#7300e0" points="17.1,5 14,8.1 29.9,24 14,39.9 17.1,43 36,24" id="id_101"></polygon>
                 </svg>
@@ -32,7 +44,7 @@ const Paginator =  ({steps = 4}:PropsPaginator) => {
                     )
                 }
             </div>
-            <div className="button--next">
+            <div className="button--next" onClick={nextStep}>
                 <svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" enable-background="new 0 0 48 48">
                     <polygon fill="#7300e0" points="17.1,5 14,8.1 29.9,24 14,39.9 17.1,43 36,24" id="id_101"></polygon>
                 </svg>
