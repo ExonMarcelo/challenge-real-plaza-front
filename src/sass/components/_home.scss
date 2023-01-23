@@ -13,4 +13,27 @@
 
 .container-results{
     row-gap: 16px;
+    &__title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1{
+            font-family: "Lato", sans-serif;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 28px;
+            line-height: 32px;
+            color: #333;
+            text-align: center;
+        }
+        .button-filter{
+            cursor: pointer;
+            width: 24px;
+            height: 24px;
+            img{
+                width: 24px;
+                height: auto;
+            }
+        }
+    }
 }

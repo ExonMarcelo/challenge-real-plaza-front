@@ -11,7 +11,7 @@ const PortalDialogSearch = () => {
       <PortalContainer>
         <div className="container-input-search">
           <InputSearch
-            placeHolder="Ingresa lo que quieres buscar" 
+            placeHolder="¿Qué estás buscando?" 
             srcIcon="https://res.cloudinary.com/dc6ryfauy/image/upload/v1674259351/real-plaza/icon-search_jkifh4.svg"
             handleChange={()=>{}}/>
         </div>

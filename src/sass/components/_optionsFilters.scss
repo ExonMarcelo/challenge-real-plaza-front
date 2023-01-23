@@ -1,0 +1,64 @@
+.options-filters{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    .option{
+        label{
+            margin-left: 8px;
+            font-family: "Lato", sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20px;
+            color: #333;
+        }
+    }
+    .range-price{
+        display: flex;
+        column-gap: 8px;
+        row-gap: 8px;
+        margin-top: 4px;
+        .form-control{
+            position: relative;
+            height: 56px;
+            border: 1px solid #7300e0;
+            border-radius: 8px;
+            width: 100%;
+            label{
+                position: absolute;
+                top: 4px;
+                left: 12px;
+                font-family: "Lato", sans-serif;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 16px;
+                color: #7300e0;
+            }
+            input{
+                border: none;
+                height: 100%;
+                width: 100%;
+                background-color: transparent;
+                padding-left: 12px;
+                padding-top: 6px;
+                font-family: "Lato", sans-serif;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 20px;
+                color: #333;
+
+                &:focus{
+                    outline: none;
+                }
+            }
+            &.disabled{
+                background-color: #e1e1e1;
+                pointer-events: none;
+                border-color: #e1e1e1;
+            }
+        }
+    }
+}

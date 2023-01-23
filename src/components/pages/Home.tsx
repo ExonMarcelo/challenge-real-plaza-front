@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import CardProduct from "../molecules/CardProduct";
 import Paginator from "../molecules/Paginator";
-import PortalDialogSearch from "../molecules/PortalDialogSearch";
+import PortalDialogSearch from "../organisms/PortalDialogSearch";
 import Header from "../organisms/Header";
+import iconFilter from "../../assets/icon-filter.svg";
+import PortalModal from "../organisms/PortalModal";
+import OptionsFilters from "../molecules/OptionsFilters";
 
 const Home = () => {
     const [showDialogSearch, setShowDialogSearch] = useState(false);
+    const [showModalfilter, setShowModalFilter] = useState(false);
 
     const handleSearch = () => {
         setShowDialogSearch(true);
@@ -85,9 +89,23 @@ const Home = () => {
             </section>
             <section>
                 <div className="container container-results">
-                    <h1 className="col-full">Lo más buscado</h1>
+                    <div className="col-full container-results__title">
+                        <h1>Lo más buscado</h1>
+                        <div className="button-filter" onClick={()=> setShowModalFilter(true)}>
+                            <img src={iconFilter} alt="icon filter"/>
+                        </div>
+                    </div>
                     {
-                        dataProducts.map(({srcImage, brand, description, price, priceFinal, discount}) =>
+                        showModalfilter &&
+                        <PortalModal
+                            title="Filtros"
+                            handleClose={() => setShowModalFilter(false)}
+                        >
+                            <OptionsFilters />
+                        </PortalModal>
+                    }
+                    {
+                        dataProducts.map(({srcImage, brand, description, price, priceFinal, discount}, index) =>
                             <CardProduct 
                                 srcImage={srcImage}
                                 brand={brand}
@@ -95,6 +113,7 @@ const Home = () => {
                                 price={price}
                                 priceFinal={priceFinal}
                                 discount={discount}
+                                key={index}
                             />
                         )
                     }
