@@ -101,7 +101,7 @@ const Home = () => {
                             title="Filtros"
                             handleClose={() => setShowModalFilter(false)}
                         >
-                            <OptionsFilters />
+                            <OptionsFilters callback={() => setShowModalFilter(false)}/>
                         </PortalModal>
                     }
                     {

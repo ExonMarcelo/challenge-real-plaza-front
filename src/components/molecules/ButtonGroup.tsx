@@ -9,12 +9,13 @@ const ButtonsGroup =  ({buttons}:PropsButtonsGroup) => {
     return(
         <div className="buttonsGroup">
             {
-                buttons.map(({srcIcon, alt, text, action}) =>
+                buttons.map(({srcIcon, alt, text, action}, index) =>
                     <Button 
                         srcIcon={srcIcon} 
                         alt={alt} 
                         text={text}
-                        action={action}/>
+                        action={action}
+                        key={index}/>
                 )
             }
         </div>

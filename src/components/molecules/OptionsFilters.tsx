@@ -19,7 +19,11 @@ const dataOptions = [
     }
 ];
 
-const OptionsFilters = () => {
+interface PropsOptionsFilter{
+    callback: () => void
+}
+
+const OptionsFilters = ({callback}:PropsOptionsFilter) => {
     interface amounts{
         minValue: number
         maxValue: number
@@ -29,7 +33,20 @@ const OptionsFilters = () => {
         minValue: 300,
         maxValue: 1500,
     });
+    
     const {minValue, maxValue} = formData;
+
+    const onChange = (e: React.FormEvent<HTMLInputElement>) => {
+        setFormData({
+            ...formData,
+            [e.currentTarget.name] : e.currentTarget.value
+        })
+    }
+
+    const ApplyFilter = () => {
+        callback();
+    }
+
     return(
         <div className="options-filters">
             {
@@ -48,12 +65,16 @@ const OptionsFilters = () => {
             <div className="range-price">
                 <div className={`form-control ${!showInputs ? "disabled" : ""}`}>
                     <label>Desde</label>
-                    <input value={minValue} type="number" />
+                    <input value={minValue} type="number" name="minValue" onChange={(e) => onChange(e)}/>
                 </div>
                 <div className={`form-control ${!showInputs ? "disabled" : ""}`}>
                     <label>Hasta</label>
-                    <input value={maxValue} type="number" />
+                    <input value={maxValue} name="maxValue" type="number" onChange={(e) => onChange(e)}/>
                 </div>
+            </div>
+
+            <div className="footer">
+                <button onClick={ApplyFilter}>Aplicar Filtros</button>
             </div>
             
         </div>
