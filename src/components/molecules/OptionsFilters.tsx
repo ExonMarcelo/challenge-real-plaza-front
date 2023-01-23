@@ -20,10 +20,10 @@ const dataOptions = [
 ];
 
 interface PropsOptionsFilter{
-    callback: () => void
+    handleClose: () => void
 }
 
-const OptionsFilters = ({callback}:PropsOptionsFilter) => {
+const OptionsFilters = ({handleClose}:PropsOptionsFilter) => {
     interface amounts{
         minValue: number
         maxValue: number
@@ -44,7 +44,7 @@ const OptionsFilters = ({callback}:PropsOptionsFilter) => {
     }
 
     const ApplyFilter = () => {
-        callback();
+        handleClose();
     }
 
     return(

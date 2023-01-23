@@ -1,8 +1,8 @@
 import { button } from "../interfaces";
 
-const Button = ({srcIcon, alt, text, action}:button) => {
+const Button = ({srcIcon, alt, text, extraClass, action}:button) => {
     return(
-        <button onClick={() => action()}>
+        <button onClick={() => action()} className={extraClass}>
             <img src={srcIcon} alt={alt}/>
             {text}
         </button>

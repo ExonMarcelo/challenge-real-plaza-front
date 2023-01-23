@@ -19,6 +19,7 @@ const Home = () => {
         {
             srcIcon: "https://res.cloudinary.com/dc6ryfauy/image/upload/v1674259351/real-plaza/icon-search_jkifh4.svg",
             alt: "search",
+            extraClass: "hide-desktop",
             action: handleSearch
         },
         {
@@ -74,7 +75,7 @@ const Home = () => {
     
     return(
         <>
-            <section>
+            <section className="shadow-header">
                 <div className="container container-home">
                     <Header 
                         srcBrand="https://res.cloudinary.com/dc6ryfauy/image/upload/v1674255734/real-plaza/logo-rp_fnuoca.webp" 
@@ -83,7 +84,9 @@ const Home = () => {
                         className="col-full home__header"/>
                     {
                         showDialogSearch &&
-                        <PortalDialogSearch/>
+                        <PortalDialogSearch 
+                            handleClose={() => setShowDialogSearch(false)}
+                        />
                     }
                 </div>
             </section>
@@ -101,8 +104,8 @@ const Home = () => {
                             title="Filtros"
                             handleClose={() => setShowModalFilter(false)}
                         >
-                            <OptionsFilters callback={() => setShowModalFilter(false)}/>
-                        </PortalModal>
+                            <OptionsFilters handleClose={() => setShowModalFilter(false)}/>
+                        </PortalModal> 
                     }
                     {
                         dataProducts.map(({srcImage, brand, description, price, priceFinal, discount}, index) =>
