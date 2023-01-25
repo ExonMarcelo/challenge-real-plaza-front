@@ -10,7 +10,8 @@ interface Props {
 export function HomeContextProvider({ children }: Props) {
     const initialState = {
         showInputSearch: false,
-        showModalFilter: false
+        showModalFilter: false,
+        isLoadingProducts: false
     };
     const [homeContext, setHomeContext] = useState<Home>(initialState);
     return (

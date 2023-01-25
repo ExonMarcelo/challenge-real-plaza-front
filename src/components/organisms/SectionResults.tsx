@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import DataContext from "../../context/DataContext"
 import { HomeContextType } from "../../context/types";
 import CardProduct from "../molecules/CardProduct";
@@ -6,11 +6,11 @@ import OptionsFilters from "../molecules/OptionsFilters";
 import Paginator from "../molecules/Paginator";
 import PortalModal from "./PortalModal";
 import iconFilter from "../../assets/icon-filter.svg"
+import Skeleton from "../atoms/Skeleton";
 
 const SectionResults = () => {
     const { homeContext, setHomeContext } = useContext(DataContext) as HomeContextType;
-
-    const { showModalFilter } = homeContext;
+    const { showModalFilter, isLoadingProducts } = homeContext;
 
     const setShowModalFilter = (value: boolean) => {
         setHomeContext({
@@ -77,7 +77,13 @@ const SectionResults = () => {
                     </PortalModal> 
                 }
                 {
-                    dataProducts.map(({srcImage, brand, description, price, priceFinal, discount}, index) =>
+                    isLoadingProducts ?
+                    [1,2,3,4].map((index)=>
+                        <Skeleton 
+                            key={index}
+                            extraClass={"col-sm-2 col-lg-3 col-xl-3 card-product-skeleton"} />
+                    )
+                    :dataProducts.map(({srcImage, brand, description, price, priceFinal, discount}, index) =>
                         <CardProduct 
                             srcImage={srcImage}
                             brand={brand}

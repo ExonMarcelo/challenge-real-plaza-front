@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import DataContext from "../../context/DataContext"
+import { HomeContextType } from "../../context/types";
 
 interface PropsPaginator{
     steps: number
 }
 
 const Paginator =  ({steps = 4}:PropsPaginator) => {
+    const {homeContext, setHomeContext} = useContext(DataContext) as HomeContextType;
+    
     const [current, setCurrent] = useState(1);
     const getSteps = () => {
         let stepsPaginator = [];
@@ -13,17 +17,33 @@ const Paginator =  ({steps = 4}:PropsPaginator) => {
         }
         return stepsPaginator;
     }
+
+    const handleLoading = (value: boolean) =>{
+        setHomeContext({
+            ...homeContext,
+            isLoadingProducts: value
+        })
+    }
+
     const prevStep = () => {
         if(current === 1){
             return;
         }
         setCurrent(current - 1);
+        handleLoading(true);
+        setTimeout(() => {
+            handleLoading(false);
+        }, 1000);
     }
     const nextStep = () => {
         if(current === steps){
             return;
         }
         setCurrent(current + 1);
+        handleLoading(true);
+        setTimeout(() => {
+            handleLoading(false);
+        }, 1000);
     }
     return(
         <div className="col-full paginator">
